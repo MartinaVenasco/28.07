@@ -12,11 +12,14 @@ function App() {
   const [friendList, setFriendList] = useState(false);
   const [filteredList, setFilteredList] = useState("");
   const [isLogin, setLogin] = useState(true);
+
   useEffect(() => {
     if (localStorage.getItem("username")) {
       setLogin(false);
     }
   }, []);
+
+
 
   return (
     <div className="App">
@@ -24,7 +27,7 @@ function App() {
         <ModalLogin onHandleClick={setLogin} />
       ) : (
         <>
-          <NavBar />
+          <NavBar onLogOutClick={setLogin} />
           <input
             className="filterInput"
             placeholder="cerca messaggi di..."
